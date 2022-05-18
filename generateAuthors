@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# also check ".mailmap" where authors names and email addresses are duplicated
+
+{
+	cat <<-'EOH'
+	#This file lists individuals who have contributed to the repository
+	#See 'generateAuthors' for how it is generated.
+	EOH
+	echo
+	git log --format='%aN <%aE>' | LC_ALL=C.UTF-8 sort -uf
+} > AUTHORS
